@@ -1,0 +1,25 @@
+{
+    "deviceId": "{{deviceId}}",
+    "protocol": "mqtt",
+    "connection": {
+        "broker": "mqtt://localhost:1883",
+        "username": "<username>",
+        "password": "<passoword>"
+    },
+    "topic": {
+        "read": "devices/{{deviceId}}/telemetry",
+        "write": "devices/{{deviceId}}/command"
+    },
+    "payload": {
+        "temperature": {
+            "type": "random",
+            "min": 20,
+            "max": 35
+        },
+        "humidity": {
+            "type": "random",
+            "min": 40,
+            "max": 80
+        }
+    }
+}

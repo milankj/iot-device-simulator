@@ -1,0 +1,23 @@
+{
+  "name": "test-device",
+  "version": "1.0.0",
+  "description": "Mockup for an IoT device whose connection can be controlled and monitored using RabbitMQ. Run with `node device.js <MAC-ADDRESS>` <SET-TIMEOUT-INTERVAL-IN-SECONDS(leave empty if none)>",
+  "main": "device.js",
+  "bin": {
+    "iot-sim": "./index.js"
+  },
+  "scripts": {
+    "start": "node device.js",
+    "dev-test": "node device.js DEV-MAC-001",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^14.0.3",
+    "fs": "^0.0.1-security",
+    "inquirer": "^13.4.2",
+    "mqtt": "^5.10.4",
+    "readline": "^1.3.0"
+  }
+}
