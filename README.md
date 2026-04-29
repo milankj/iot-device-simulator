@@ -1,4 +1,3 @@
-````markdown
 # 🐇 IoT Simulator CLI
 
 A CLI-based IoT device simulator built with Node.js and RabbitMQ (MQTT). This tool allows users to generate device configurations, simulate virtual IoT devices, and interact with them directly from the terminal.
