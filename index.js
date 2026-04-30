@@ -3,9 +3,7 @@
 const { Command } = require('commander');
 const createDevice = require('./commands/device/create');
 const generateDeviceTemplate = require("./commands/device/template");
-
-const args = process.argv.slice(2);
-console.log(args);
+const startDevice = require("./commands/device/start");
 
 const program = new Command();
 
@@ -25,7 +23,9 @@ device
     .description('Create a template device config')
     .action(generateDeviceTemplate);
 
-program.parse();
-// iot-sim device create
+device
+    .command('start <deviceId>')
+    .description('Start a device simulator')
+    .action(startDevice);
 
-// iot-sim device template device
+program.parse();

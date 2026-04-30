@@ -1,5 +1,3 @@
-// const inquirer = require('inquirer').default;
-// const template = require("../templates/device.json");
 const fs = require('fs');
 const path = require('path');
 
