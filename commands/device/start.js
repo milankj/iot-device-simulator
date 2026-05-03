@@ -11,9 +11,24 @@ module.exports = async (deviceId) => {
     console.log("Starting device simulator for device: ", deviceId, "\n");
 
     const deviceConfigPath = path.join(
-        __dirname,
-        `../../devices/${deviceId}.json`
+        process.cwd(),
+        'devices',
+        `${deviceId}.json`
     );
+
+    if (!fs.existsSync(deviceConfigPath)) {
+        console.log(
+            `❌ No device configuration found for device ID: ${deviceId}
+
+Run:
+iot-sim device create
+
+to generate a new device configuration.`
+        );
+        return;
+
+    }
+
     const deviceConfig = JSON.parse(
         fs.readFileSync(deviceConfigPath, 'utf-8')
     );
