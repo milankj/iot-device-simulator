@@ -1,6 +1,6 @@
 {
   "name": "iot-simulator-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI-based IoT device simulator for MQTT and RabbitMQ with interactive device control, telemetry generation, and config-driven virtual device simulation.",
   "main": "index.js",
   "bin": {
