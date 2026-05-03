@@ -1,5 +1,6 @@
 const inquirer = require('inquirer').default;
 const fs = require('fs');
+const path = require('path');
 
 module.exports = async () => {
 
@@ -52,8 +53,18 @@ module.exports = async () => {
         'devices'
     );
 
+    fs.mkdirSync(devicesPath, {
+        recursive: true
+    });
+
+
+    const deviceFilePath = path.join(
+        devicesPath,
+        `${answers.deviceId}.json`
+    );
+
     fs.writeFileSync(
-        `devices/${answers.deviceId}.json`,
+        deviceFilePath,
         JSON.stringify(config, null, 2)
     );
 
