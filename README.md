@@ -6,59 +6,166 @@ A CLI-based IoT device simulator built with Node.js and RabbitMQ (MQTT). This to
 
 ## 🚀 Features
 
-- CLI-based device simulator
+- CLI-based IoT device simulation
 - MQTT communication using RabbitMQ
-- Interactive device control shell
-- Device configuration generation
-- Template-based device configs
+- Interactive terminal device control
+- Dynamic telemetry payload generation
 - Config-driven simulation architecture
-- Supports dynamic telemetry payloads
+- JSON-based device configurations
+- Runtime device interaction shell
 
 ---
 
-## ⚙️ Core Functionality
+## ⚙️ Installation
 
-### Device Creation
+Install dependencies:
 
-Generate new device configurations interactively:
+```bash
+npm install
+````
+
+Install CLI globally from project root:
+
+```bash
+npm install -g .
+```
+
+---
+
+## 🐳 RabbitMQ Setup (Docker)
+
+This project includes a Docker Compose setup for running RabbitMQ with MQTT support enabled.
+
+### Start RabbitMQ
+
+Build and start the RabbitMQ container:
+
+```bash
+docker-compose up -d --build
+````
+
+This will:
+
+* Build the RabbitMQ image
+* Enable MQTT support
+* Start RabbitMQ in detached mode
+* Expose MQTT and Management UI ports
+
+---
+
+### Stop RabbitMQ
+
+```bash
+docker-compose down
+```
+
+---
+
+### Reset RabbitMQ Data
+
+To remove all persisted RabbitMQ data:
+
+```bash
+docker-compose down -v
+```
+
+Then start again:
+
+```bash
+docker-compose up -d --build
+```
+
+---
+
+### RabbitMQ Management UI
+
+Access the management dashboard:
+
+```text
+http://localhost:15672
+```
+
+Credentials are loaded from:
+
+```text
+rabbitmq.env
+```
+
+---
+
+### Exposed Ports
+
+| Port  | Purpose                |
+| ----- | ---------------------- |
+| 5672  | AMQP                   |
+| 15672 | RabbitMQ Management UI |
+| 1883  | MQTT                   |
+
+```
+```
+---
+
+## 🛠 Available Commands
+
+### Create Device Configuration
+
+Generate a new device configuration interactively:
 
 ```bash
 iot-sim device create
-````
+```
 
-This creates a device config JSON file with default MQTT settings, topics, payload generators, and telemetry structure.
+This creates a device configuration JSON file with default MQTT topics, payload generators, and simulation settings.
+
+Generated configs are stored in:
+
+```bash
+./devices/
+```
 
 ---
 
-### Device Templates
+### Generate Device Template
 
-Generate reusable device configurations from predefined templates:
+Generate a reusable device template configuration:
 
 ```bash
 iot-sim device template <deviceId>
 ```
 
-Templates allow rapid creation of simulated IoT devices with standardized payload structures and topic mappings.
+Example:
+
+```bash
+iot-sim device template sensor01
+```
+
+This creates a template-based configuration file for the provided device ID.
 
 ---
 
-### Device Simulation
+### Start Device Simulator
 
-Start a virtual device simulator:
+Start a virtual IoT device simulator:
 
 ```bash
 iot-sim device start <deviceId>
 ```
 
-The simulator connects to RabbitMQ via MQTT and begins publishing/subscribing using the device configuration.
+Example:
+
+```bash
+iot-sim device start sensor01
+```
+
+The simulator loads the device configuration, connects to RabbitMQ using MQTT, and starts publishing/subscribing to device topics.
 
 ---
 
-### Interactive Device Shell
+## 💻 Interactive Device Shell
 
-Once a device is started, an interactive terminal session is opened for live device control.
+Once a device simulator starts, an interactive terminal shell is opened for runtime control.
 
-Example controls:
+Example operations:
 
 * Publish telemetry
 * Check device status
@@ -70,17 +177,17 @@ Example controls:
 
 ## 🔄 How It Works
 
-1. Device configs are stored as JSON files
-2. CLI commands load and initialize virtual devices
-3. Devices connect to RabbitMQ using MQTT
-4. Telemetry payloads are generated dynamically
-5. Interactive shell allows runtime device control
+1. Device configurations are stored as JSON files
+2. CLI commands initialize virtual devices
+3. Devices connect to RabbitMQ via MQTT
+4. Telemetry payloads are dynamically generated
+5. Interactive shell allows live device control
 
 ---
 
 ## 📁 Configuration Driven
 
-The simulator is fully config-driven. Each virtual device contains:
+Each simulated device is fully config-driven and contains:
 
 * Device identity
 * MQTT credentials
@@ -88,7 +195,7 @@ The simulator is fully config-driven. Each virtual device contains:
 * Payload generators
 * Simulation intervals
 
-This allows reusable and scalable IoT simulations without modifying source code.
+This enables scalable IoT simulation without modifying source code.
 
 ---
 
@@ -96,10 +203,10 @@ This allows reusable and scalable IoT simulations without modifying source code.
 
 * MQTT testing
 * IoT backend development
-* Device simulation
-* Event-driven system testing
+* Event-driven architecture testing
 * RabbitMQ integration testing
-* Local IoT environment emulation
+* Local IoT environment simulation
+* Device telemetry emulation
 
 ---
 
