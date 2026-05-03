@@ -1,18 +1,29 @@
 {
-  "name": "test-device",
+  "name": "iot-simulator-cli",
   "version": "1.0.0",
-  "description": "Mockup for an IoT device whose connection can be controlled and monitored using RabbitMQ. Run with `node device.js <MAC-ADDRESS>` <SET-TIMEOUT-INTERVAL-IN-SECONDS(leave empty if none)>",
-  "main": "device.js",
+  "description": "CLI-based IoT device simulator for MQTT and RabbitMQ with interactive device control, telemetry generation, and config-driven virtual device simulation.",
+  "main": "index.js",
   "bin": {
     "iot-sim": "./index.js"
   },
-  "scripts": {
-    "start": "node device.js",
-    "dev-test": "node device.js DEV-MAC-001",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
+  "author": "Milan K Jain",
+  "license": "MIT",
+  "keywords": [
+    "iot",
+    "simulator",
+    "mqtt",
+    "rabbitmq",
+    "cli"
+  ],
+  "files": [
+    "commands",
+    "helpers",
+    "templates",
+    "docker-compose.yml",
+    "Dockerfile",
+    "index.js",
+    "rabbitmq.env.example"
+  ],
   "dependencies": {
     "commander": "^14.0.3",
     "fs": "^0.0.1-security",
