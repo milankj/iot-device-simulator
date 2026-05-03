@@ -47,6 +47,10 @@ module.exports = async () => {
         }
     };
 
+    const devicesPath = path.join(
+        process.cwd(),
+        'devices'
+    );
 
     fs.writeFileSync(
         `devices/${answers.deviceId}.json`,
