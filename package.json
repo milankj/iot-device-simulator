@@ -8,6 +8,10 @@
   },
   "author": "Milan K Jain",
   "license": "MIT",
+  "repository": {
+  	"type": "git",
+  	"url": "https://github.com/milankj/iot-device-simulator.git"
+  },
   "keywords": [
     "iot",
     "simulator",
