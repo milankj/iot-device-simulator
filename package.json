@@ -1,6 +1,6 @@
 {
   "name": "iot-simulator-cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "CLI-based IoT device simulator for MQTT and RabbitMQ with interactive device control, telemetry generation, and config-driven virtual device simulation.",
   "main": "index.js",
   "bin": {
@@ -9,8 +9,8 @@
   "author": "Milan K Jain",
   "license": "MIT",
   "repository": {
-  	"type": "git",
-  	"url": "https://github.com/milankj/iot-device-simulator.git"
+    "type": "git",
+    "url": "https://github.com/milankj/iot-device-simulator.git"
   },
   "keywords": [
     "iot",
